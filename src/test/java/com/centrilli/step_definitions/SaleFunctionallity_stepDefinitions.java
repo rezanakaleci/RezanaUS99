@@ -52,6 +52,7 @@ public class SaleFunctionallity_stepDefinitions {
         BrowserUtils.sleep(5);
         Assert.assertTrue(sale.listDisplayed.isDisplayed());
     }
+
     @Then("user clicks on kanban button")
     public void user_clicks_on_kanban_button() {
      sale.kanbanButton.click();
@@ -84,29 +85,32 @@ public class SaleFunctionallity_stepDefinitions {
 
     @Given("user is on customer dashboard")
     public void userIsOnCustomerDashboard() {
+        String expectedtittle = "Customer / Anna";
+        Assert.assertEquals(expectedtittle,Driver.getDriver().getTitle());
 
     }
 
     @When("user clicks import button")
     public void userClicksImportButton() {
-      // sale.importButton.click();
+      sale.importButton.click();
 
     }
 
     @And("user clicks load a file button")
     public void userClicksLoadAFileButton() {
-       // sale.loadFileButton.click();
+        sale.loadFileButton.click();
 
     }
 
     @And("user chooses the file to import")
     public void userChoosesTheFileToImport() {
 
+
     }
 
     @Then("user should see the file is imported")
     public void userShouldSeeTheFileIsImported() {
-      //  sale.importButton.click();
+       sale.importButton.click();
 
 
     }

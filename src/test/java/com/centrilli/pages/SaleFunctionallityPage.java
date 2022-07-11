@@ -54,7 +54,8 @@ public class SaleFunctionallityPage {
       @FindBy(xpath = "/div[1]/div[2]/div/span[1]/label")
     public WebElement loadFileButton;
 
-
+     @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/ol")
+    public WebElement customerDashboard;
 
 
 

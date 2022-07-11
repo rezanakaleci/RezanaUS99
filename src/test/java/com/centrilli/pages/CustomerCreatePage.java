@@ -44,4 +44,7 @@ public class CustomerCreatePage {
   @FindBy(xpath = "//td/div/input[@name='phone']")
     public WebElement phoneNumber;
 
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/ol/li[1]/a")
+    public WebElement customerChanged;
+
 }

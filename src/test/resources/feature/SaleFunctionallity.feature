@@ -1,4 +1,4 @@
-@Regression
+@wip
 Feature:Sale Functionality
   As a Sales Manager, I should be able to create and edit a new customer from "Sales" module
   Every button must be functi at the sale stage while I use the module as a posmanager
@@ -37,7 +37,7 @@ Feature:Sale Functionality
     And user clicks on  edit button
     And user changes customer name
     And user clicks save button
-   Then user should see the customer name is changers
+   Then user should see the customer name is changed
 
 
    Scenario: User should be able to see created customer is listed after
@@ -57,7 +57,6 @@ Feature:Sale Functionality
 
 
     Scenario: User should be able to import a file
-      Given user is on customer dashboard
       When user clicks import button
       And user clicks load a file button
       And user chooses the file to import

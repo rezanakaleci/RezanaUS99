@@ -54,7 +54,8 @@ public class CustomerCreated_stepDefinitions {
 
  @Then("user should see the new created customer from Sale module")
  public void user_should_see_the_new_created_customer_from_sale_module() {
-  String expectedtittle = "";
+  String expectedtittle = "Odoo";
+  Assert.assertEquals(expectedtittle,Driver.getDriver().getTitle());
 
 
  }
@@ -63,19 +64,24 @@ public class CustomerCreated_stepDefinitions {
  // User should be able to change the name of the customer, after creating new customer
  @When("user is on customer data")
  public void userIsOnCustomerData() {
-
+  String expectedtittle = "Odoo";
+  Assert.assertEquals(expectedtittle,Driver.getDriver().getTitle());
  }
 
  @And("user clicks on  edit button")
  public void userClicksOnEditButton() {
-
+  BrowserUtils.sleep(4);
+   customerCreatePage.editButton.click();
  }
  @And("user changes customer name")
  public void userChangesCustomerName() {
+   customerCreatePage.nameBox.sendKeys(Keys.BACK_SPACE, Keys.BACK_SPACE, Keys.BACK_SPACE);
  }
 
- @Then("user should see the customer name is changers")
+ @Then("user should see the customer name is changed")
  public void userShouldSeeTheCustomerNameIsChangers() {
+  String expectedTittle="Odoo";
+  Assert.assertTrue(customerCreatePage.customerChanged.isDisplayed());
 
  }
 
