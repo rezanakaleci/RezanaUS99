@@ -1,6 +1,7 @@
 package com.centrilli.step_definitions;
 
 import com.centrilli.utilities.BrowserUtils;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,6 +14,8 @@ import org.openqa.selenium.Keys;
 
 public class SaleFunctionallity_stepDefinitions {
     SaleFunctionallityPage sale = new SaleFunctionallityPage();
+    Faker faker = new Faker();
+    String name = faker.name().fullName();
 
 
     @Given("user is on the centrilli login page")
@@ -50,12 +53,18 @@ public class SaleFunctionallity_stepDefinitions {
     @Then("user should be able to see listed customers")
     public void user_should_be_able_to_see_listed_customers() {
         BrowserUtils.sleep(5);
-        Assert.assertTrue(sale.listDisplayed.isDisplayed());
+     //   Assert.assertTrue(sale.listDisplayed.isDisplayed());
+        sale.customerButton.click();
     }
 
     @Then("user clicks on kanban button")
     public void user_clicks_on_kanban_button() {
      sale.kanbanButton.click();
+    }
+    @Then("user should be able to see listed customers from kanban")
+    public void userShouldBeAbleToSeeListedCustomersFromKanban() {
+        BrowserUtils.sleep(3);
+     Assert.assertTrue(sale.customerDashboard.getText().contains("Customers"));
     }
 
     @Then("user clicks on forward and backward button")
@@ -71,20 +80,24 @@ public class SaleFunctionallity_stepDefinitions {
 
     @Then("user search for {string} and presses enter")
     public void user_search_for_and_presses_enter(String string) {
-
     sale.getSearchBox.sendKeys(string + Keys.ENTER);
     }
 
     @Then("user should be able to se Anna customer listed")
     public void user_should_be_able_to_se_anna_customer_listed() {
         BrowserUtils.sleep(2);
-        Assert.assertTrue(sale.AnnaCreatedCustomer.getText().contains("Anna"));
+        while (!(sale.AnnaCreatedCustomer.isDisplayed())){
+            sale.nextButton.click();
+            BrowserUtils.sleep(2);
+        }
+        System.out.println(sale.AnnaCreatedCustomer.getText());
+        Assert.assertTrue(sale.AnnaCreatedCustomer.isDisplayed());
 
     }
 
-
     @Given("user is on customer dashboard")
     public void userIsOnCustomerDashboard() {
+        sale.customerButton.click();
         String expectedtittle = "Customer / Anna";
         Assert.assertEquals(expectedtittle,Driver.getDriver().getTitle());
 
@@ -92,12 +105,18 @@ public class SaleFunctionallity_stepDefinitions {
 
     @When("user clicks import button")
     public void userClicksImportButton() {
-      sale.importButton.click();
+        BrowserUtils.sleep(4);
+        //String filepath="\u202AC:\\Users\\admin\\Desktop";
+        //sale.importButton.sendKeys(filepath);
+        String filePath2="\u202AC:\\Users\\admin\\Desktop\\SampleData.xlsx";
+        sale.importButton.click();
+      sale.importButton.sendKeys(filePath2);
 
     }
 
     @And("user clicks load a file button")
     public void userClicksLoadAFileButton() {
+        BrowserUtils.sleep(3);
         sale.loadFileButton.click();
 
     }
@@ -114,6 +133,8 @@ public class SaleFunctionallity_stepDefinitions {
 
 
     }
+
+
 }
 
 

@@ -36,8 +36,8 @@ public class SaleFunctionallityPage {
     @FindBy(xpath = "/html/body/div[1]/div[2]/div[2]/div/div/div/table/thead/tr/th[2]")
     public WebElement listButton;
 
-    @FindBy(xpath = "//tr/th[.='Name']")
-    public WebElement listDisplayed;
+   // @FindBy(xpath = "//tr/th[.='Name']")
+   // public WebElement listDisplayed;
 
     @FindBy(xpath = "//button[@data-original-title='Kanban']")
     public WebElement kanbanButton;
@@ -45,17 +45,20 @@ public class SaleFunctionallityPage {
     @FindBy(xpath = "//input[@class='o_searchview_input']")
     public WebElement getSearchBox;
 
-    @FindBy(xpath = "html/body/div[1]/div[2]/div[2]/div/div/div/div[1]/div[2]/ul/li[1]")
-    public WebElement AnnaCreatedCustomer;
+   @FindBy(xpath = "html/body/div[1]/div[2]/div[2]/div/div/div/div[1]/div[2]/ul/li[1]")
+   public WebElement AnnaCreatedCustomer;
 
       @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/div[2]/div[1]/div/button[2]")
     public WebElement importButton;
 
-      @FindBy(xpath = "/div[1]/div[2]/div/span[1]/label")
+      @FindBy(xpath = "//label[@class='btn btn-primary']")
     public WebElement loadFileButton;
 
      @FindBy(xpath = "/html/body/div[1]/div[2]/div[1]/ol")
     public WebElement customerDashboard;
+
+    @FindBy(css = "a[data-menu='447'] span")
+    public WebElement customerButton;
 
 
 

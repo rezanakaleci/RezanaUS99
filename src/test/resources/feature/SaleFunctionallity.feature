@@ -1,4 +1,4 @@
-@wip
+@test
 Feature:Sale Functionality
   As a Sales Manager, I should be able to create and edit a new customer from "Sales" module
   Every button must be functi at the sale stage while I use the module as a posmanager
@@ -12,10 +12,11 @@ Feature:Sale Functionality
   Scenario: User should be able that all buttons work as expected at the Customers
                 homepage stage
     Given user is on "sale" dashboard
+   Then  user clicks on customer module
     And user clicks on list button
     Then user should be able to see listed customers
     And user clicks on kanban button
-    Then user should be able to see listed customers
+    Then user should be able to see listed customers from kanban
     And user clicks on forward and backward button
     Then user should be able to see listed customers
     And user click on search input box
@@ -32,7 +33,7 @@ Feature:Sale Functionality
     Then user should see the new created customer from Sale module
 
 
-  Scenario: User should be able to change the name of the customer, after creating new customer
+  Scenario: User should be able to edit the name of the customer, after creating new customer
     When user is on customer data
     And user clicks on  edit button
     And user changes customer name
@@ -40,7 +41,7 @@ Feature:Sale Functionality
    Then user should see the customer name is changed
 
 
-   Scenario: User should be able to see created customer is listed after
+   Scenario: Verify that User should be able to see created customer is listed after
               clicking the Customers module.
 
      When user clicks on customer module
@@ -55,7 +56,7 @@ Feature:Sale Functionality
     And user clicks save button
     Then user should be able to see the title change to customer name
 
-
+@test
     Scenario: User should be able to import a file
       When user clicks import button
       And user clicks load a file button
